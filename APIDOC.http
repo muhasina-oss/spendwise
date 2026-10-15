@@ -1,0 +1,89 @@
+#api call for create a user
+###
+POST http://127.0.0.1:8000/v1/spending/register/
+Content-Type: application/json
+
+{
+  "username":"user1",
+  "email":"user1@gmail.com",
+  "password":"user1"
+
+}
+
+#api call for get current user
+###
+GET http://127.0.0.1:8000/v1/spending/me/
+Accept: application/json
+Authorization: Basic django:django
+
+#========Expense endpoints===
+#api call for list all expense
+###
+GET http://127.0.0.1:8000/v1/spending/expenses/
+Accept: application/json
+Authorization: Token d207a697a46e209a3178941c499fab9a1fbf91f5
+
+
+#api call for adding an expense
+###
+POST http://127.0.0.1:8000/v1/spending/expenses/
+Content-Type: application/json
+Authorization: Token d207a697a46e209a3178941c499fab9a1fbf91f5
+
+{
+  "title":"PARTY WEAR",
+  "amount":3000,
+  "category":"SHOPPING",
+  "payment_method":"upi"
+}
+
+#api call for retrieve a expense
+###
+GET http://127.0.0.1:8000/v1/spending/expenses/1/
+Accept: application/json
+Authorization: Token d207a697a46e209a3178941c499fab9a1fbf91f5
+#api call for update an expense
+###
+PUT http://127.0.0.1:8000/v1/spending/expenses/1/
+Content-Type: application/json
+Authorization: Token d207a697a46e209a3178941c499fab9a1fbf91f5
+
+{
+  "id": 1,
+  "title": "Pharmacy",
+  "amount": "1820.00",
+  "category": "HEALTH",
+  "priority": "need",
+  "payment_method": "upi",
+  "created_at": "2026-10-09T06:08:22.230334Z",
+  "updated_at": "2026-10-09T06:08:22.230350Z",
+  "owner": 1
+}
+
+#api call for delte an expense
+###
+DELETE http://127.0.0.1:8000/v1/spending/expenses/3/
+Accept: application/json
+Authorization: Basic django:django
+
+#api call for create a token
+###
+POST http://127.0.0.1:8000/v1/spending/token/
+Content-Type: application/json
+
+{
+  "username":"django",
+  "password":"django"
+}
+
+#api call for summary
+###
+GET  http://127.0.0.1:8000/v1/spending/expenses/summary/
+Accept: application/json
+Authorization: Token d207a697a46e209a3178941c499fab9a1fbf91f5
+
+#api call for list budget
+###
+GET  http://127.0.0.1:8000/v1/spending/expenses/budget/
+Accept: application/json
+Authorization: Token d207a697a46e209a3178941c499fab9a1fbf91f5
